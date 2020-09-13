@@ -1,0 +1,23 @@
+{
+  "name": "@vubular/layout",
+  "version": "0.0.1",
+  "description": "App Layout",
+  "main": "src/index.js",
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build"
+  },
+  "dependencies": {
+    "@vubular/elements": "^0.0.19"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vubular/layout.git"
+  },
+  "author": "vubular",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vubular/layout/issues"
+  },
+  "homepage": "https://github.com/vubular/layout#readme"
+}
