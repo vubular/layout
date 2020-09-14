@@ -1,24 +1,23 @@
 <template>
 	<div class="vubular-layout">
-		<sidebar></sidebar>
-		<navbar></navbar>
-		<breadcrumbs></breadcrumbs>
-		<app></app>
+		<sidebar :navigation="navigation" v-on="$listeners"></sidebar>
+		<navbar v-on="$listeners"></navbar>
+		<breadcrumbs v-on="$listeners"></breadcrumbs>
+		<app v-on="$listeners">
+
+		</app>
 	</div>
 </template>
 <script>
-	import Sidebar from "./sections/Sidebar";
-	import Navbar from "./sections/Navbar";
-	import Breadcrumbs from "./sections/Breadcrumbs";
-	import App from "./sections/App";
+	import Sidebar from "./sidebar";
+	import Navbar from "./navbar";
+	import Breadcrumbs from "./breadcrumbs";
+	import App from "./app";
 	export default {
 		name: "VubularLayout",
 		components: { Sidebar, Navbar, Breadcrumbs, App },
 		props: {
-			navigation: {
-				type: Array,
-				required: true
-			}
+			navigation: Array
 		}
 	}
 </script>
