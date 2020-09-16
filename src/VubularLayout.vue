@@ -1,23 +1,94 @@
 <template>
-	<div class="vubular-layout">
-		<sidebar :navigation="navigation" v-on="$listeners"></sidebar>
-		<navbar v-on="$listeners"></navbar>
-		<breadcrumbs v-on="$listeners"></breadcrumbs>
-		<app v-on="$listeners">
-
-		</app>
+	<div class="vubular-layout-container">
+		<sidebar
+			:brand="brand"
+			:preferences="preferences"
+			:navigation="navigation"
+			@pinned="sidebarPinned"
+			@unpinned="sidebarUnpinned"
+			v-on="$listeners"
+			>
+		</sidebar>
+		<div
+			class="app-section"
+			:class="{'sidebar-set': sidebarSet, 'sidebar-pinned': sidebarIsPinned}"
+			>
+			<navbar
+				:brand="brand"
+				v-on="$listeners"
+				>
+				<template #brand>
+					<slot name="brand"></slot>
+				</template>
+				<template #search>
+					<slot name="search"></slot>
+				</template>
+				<template #support-trigger="{ focus }">
+					<slot name="support-trigger" v-bind="{ focus }"></slot>
+				</template>
+				<template #support>
+					<slot name="support"></slot>
+				</template>
+				<template #launcher-trigger="{ focus }">
+					<slot name="launcher-trigger" v-bind="{ focus }"></slot>
+				</template>
+				<template #launcher>
+					<slot name="launcher"></slot>
+				</template>
+				<template #notifications-trigger="{ focus }">
+					<slot name="notifications-trigger" v-bind="{ focus }"></slot>
+				</template>
+				<template #notifications>
+					<slot name="notifications"></slot>
+				</template>
+				<template #account-trigger="{ focus }">
+					<slot name="account-trigger" v-bind="{ focus }"></slot>
+				</template>
+				<template #account>
+					<slot name="account"></slot>
+				</template>
+			</navbar>
+			<app
+				v-on="$listeners"
+				>
+				<template #breadcrumbs-right>
+					<slot name="breadcrumbs-right"></slot>
+				</template>
+				<slot></slot>
+			</app>
+		</div>
 	</div>
 </template>
 <script>
 	import Sidebar from "./sidebar";
 	import Navbar from "./navbar";
-	import Breadcrumbs from "./breadcrumbs";
 	import App from "./app";
 	export default {
 		name: "VubularLayout",
-		components: { Sidebar, Navbar, Breadcrumbs, App },
+		components: { Sidebar, Navbar, App },
 		props: {
-			navigation: Array
+			brand: Object,
+			navigation: Array,
+			preferences: Object,
+		},
+		data() {
+			return {
+				sidebarIsPinned: false
+			}
+		},
+		methods: {
+			sidebarPinned() { this.sidebarIsPinned = true; },
+			sidebarUnpinned() { this.sidebarIsPinned = false; }
+		},
+		computed: {
+			sidebarSet() {
+				return this.navigation && Array.isArray(this.navigation) && this.navigation.length>0
+			}
 		}
 	}
 </script>
+<style scoped>
+	.vubular-layout-container .app-section { transition: padding .30s; background: #f7f7f7; }
+	.vubular-layout-container .app-section.sidebar-set { padding-left: 65px; }
+	.vubular-layout-container .app-section.sidebar-pinned { padding-left: 240px; }
+</style>
