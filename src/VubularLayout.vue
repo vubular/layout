@@ -15,6 +15,7 @@
 			>
 			<navbar
 				:brand="brand"
+				:account="account"
 				v-on="$listeners"
 				>
 				<template #brand>
@@ -70,6 +71,7 @@
 			brand: Object,
 			navigation: Array,
 			preferences: Object,
+			account: Object,
 		},
 		data() {
 			return {
@@ -84,7 +86,8 @@
 			sidebarSet() {
 				return this.navigation && Array.isArray(this.navigation) && this.navigation.length>0
 			}
-		}
+		},
+		mounted() { this.$emit("mounted") }
 	}
 </script>
 <style scoped>

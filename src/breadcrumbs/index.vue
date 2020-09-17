@@ -19,13 +19,10 @@
 		name: 'Breadcrumbs',
 		data() { return { paths: [] } },
 		beforeMount() { this.updateBreadcrumbs() },
-		computed: {
-			hasBreadcrumbsRight() {
-				return !!this.$slots.breadcrumbsRight
-			}
-		},
+		computed: { hasBreadcrumbsRight() { return !!this.$slots.breadcrumbsRight } },
 		methods: {
 			updateBreadcrumbs: function() {
+				this.paths = [];
 				let paths = this.$route.path.substring(1).split("?").shift().split("/");
 				let fullPath = "";
 				paths.filter((p) => {
@@ -35,7 +32,9 @@
 			}
 		},
 		watch: {
-			'$route.params.path'() { this.updateBreadcrumbs() }
+			'$route.path': function() {
+				this.updateBreadcrumbs()
+			}
 		}
 	}
 </script>
