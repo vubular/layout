@@ -55,7 +55,7 @@
 				<template #breadcrumbs-right>
 					<slot name="breadcrumbs-right"></slot>
 				</template>
-				<slot></slot>
+				<template #default><slot name="app"></slot></template>
 			</app>
 		</div>
 	</div>

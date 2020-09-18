@@ -58,4 +58,5 @@
 	.dropdown.is-active button { background: #dbdbdb; border-color: #dbdbdb; }
 	.mr0{margin-right:0;border-right:0;}
 	.navbar-item.impersonating:hover { background: #dbdbdb; }
+	>>> .dropdown-menu { width: 100%; }
 </style>
