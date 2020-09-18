@@ -57,4 +57,8 @@
 	.navbar-item { border-left: 1px solid #ddd; padding: 0; }
 	.navbar-item button { width: 100%; height: 100%; padding: 15px 25px; border-radius:0; }
 	.navbar-item button i { font-size: 20px; color: #868686; }
+	>>> .dropdown-menu { min-width: 25rem; right: -225% !important; }
+	>>> .dropdown-menu:before { content: ""; position: absolute; top: -17px; left: 50.5%; margin-left: -10px; border-width: 10px; border-style: solid; border-color: transparent transparent #ddd transparent; }
+	>>> .dropdown-menu:after { content: ""; position: absolute; top: -16px; left: 50.5%; margin-left: -10px; border-width: 10px; border-style: solid; border-color: transparent transparent #fff transparent; }
+	>>> .dropdown-menu .dropdown-content { max-height: 30rem !important; overflow-y: auto; }
 </style>
