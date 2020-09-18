@@ -37,8 +37,8 @@
 				let name = this.account && this.account.name ? this.account.name : "Username";
 				if(this.account) {
 					if(this.account.firstname) name = this.account.firstname;
-					if(this.account.middlename) name+= " " + this.account.firstname;
-					if(this.account.lastname) name+= " " + this.account.firstname;
+					if(this.account.middlename) name+= " " + this.account.middlename;
+					if(this.account.lastname) name+= " " + this.account.lastname;
 					if(this.account.fullname) name = this.account.fullname;
 				}
 
