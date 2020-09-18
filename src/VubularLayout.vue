@@ -10,7 +10,7 @@
 			>
 		</sidebar>
 		<div
-			class="app-section"
+			id="app-section"
 			:class="{'sidebar-set': sidebarSet, 'sidebar-pinned': sidebarIsPinned}"
 			>
 			<navbar
@@ -91,7 +91,7 @@
 	}
 </script>
 <style scoped>
-	.vubular-layout-container .app-section { transition: padding .30s; background: #f7f7f7; }
-	.vubular-layout-container .app-section.sidebar-set { padding-left: 65px; }
-	.vubular-layout-container .app-section.sidebar-pinned { padding-left: 240px; }
+	.vubular-layout-container #app-section { transition: padding .30s; background: #f7f7f7; }
+	.vubular-layout-container #app-section.sidebar-set { padding-left: 65px; }
+	.vubular-layout-container #app-section.sidebar-pinned { padding-left: 240px; }
 </style>
