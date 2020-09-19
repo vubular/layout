@@ -8,20 +8,20 @@
 							<span class="icon"><i class="fa fa-user-circle"></i></span>
 							<span>{{fullname}}</span>
 							<span class="icon is-small">
-								<i class="fal fa-angle-down"></i>
+								<i class="fas fa-angle-down"></i>
 							</span>
 						</button>
 					</slot>
 				</template>
 				<slot name="account">
-					<router-link v-if="rouerInstalled" :class="'dropdown-item'" to="/account/profile"><translate>Profile</translate></router-link>
-					<a v-else href="#/account/profile"><translate>Profile</translate></a>
-					<router-link v-if="rouerInstalled" :class="'dropdown-item'" to="/account/security"><translate>Security</translate></router-link>
-					<a v-else href="#/account/security"><translate>Security</translate></a>
-					<router-link v-if="rouerInstalled" :class="'dropdown-item'" to="/account/preferences"><translate>Preferences</translate></router-link>
-					<a v-else href="#/account/preferences"><translate>Preferences</translate></a>
-					<router-link v-if="rouerInstalled" :class="'dropdown-item'" to="/account/notifications"><translate>Notifications</translate></router-link>
-					<a v-else href="#/account/notifications"><translate>Notifications</translate></a>
+					<router-link v-if="rouerInstalled" class="dropdown-item" to="/account/profile"><translate>Profile</translate></router-link>
+					<a v-else href="#/account/profile" class="dropdown-item"><translate>Profile</translate></a>
+					<router-link v-if="rouerInstalled" class="dropdown-item" to="/account/security"><translate>Security</translate></router-link>
+					<a v-else href="#/account/security" class="dropdown-item"><translate>Security</translate></a>
+					<router-link v-if="rouerInstalled" class="dropdown-item" to="/account/preferences"><translate>Preferences</translate></router-link>
+					<a v-else href="#/account/preferences" class="dropdown-item"><translate>Preferences</translate></a>
+					<router-link v-if="rouerInstalled" class="dropdown-item" to="/account/notifications"><translate>Notifications</translate></router-link>
+					<a v-else href="#/account/notifications" class="dropdown-item"><translate>Notifications</translate></a>
 					<hr class="dropdown-divider">
 					<a href="#" class="dropdown-item" @click.prevent="$emit('signout')">{{'Sign out' | translate}}</a>
 				</slot>

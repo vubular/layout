@@ -25,7 +25,7 @@
 				<template v-slot:trigger="{ focus }">
 					<slot name="notifications-trigger" v-bind="{ focus }">
 						<button type="button" class="button is-white" @click="focus();$emit('focusedNotifications')">
-							<i class="fal fa-bell"></i>
+							<i class="far fa-bell"></i>
 						</button>
 					</slot>
 				</template>

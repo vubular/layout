@@ -3,7 +3,7 @@
 		<slot>
 			<div class="toggler">
 				<button type="button" class="hamburger" @click="togglePinning">
-					<i class="fal fa-bars"></i>
+					<i class="fas fa-bars"></i>
 				</button>
 				<p v-if="brand && brand.name" class="brand" v-html="brand.name"></p>
 			</div>
