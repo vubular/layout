@@ -9,7 +9,7 @@
 								<i v-if="item.icon" :class="item.icon"></i>
 								<translate v-if="item.label && expanded">{{item.label</translate>
 							</router-link>
-							<a v-if="!item.path && item.clickFunction" href="#" @click.prevent="" v-else>
+							<a v-if="!item.path && item.clickFunction" href="#" @click.prevent="">
 								<i v-if="item.icon" :class="item.icon"></i>
 								<translate v-if="item.label && expanded">{{item.label}}</translate>
 							</a>

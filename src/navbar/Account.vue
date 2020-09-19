@@ -23,7 +23,7 @@
 					<router-link v-if="rouerInstalled" class="dropdown-item" to="/account/notifications"><translate>Notifications</translate></router-link>
 					<a v-else href="#/account/notifications" class="dropdown-item"><translate>Notifications</translate></a>
 					<hr class="dropdown-divider">
-					<a href="#" class="dropdown-item" @click.prevent="$emit('signout')">{{'Sign out' | translate}}</a>
+					<a href="#" class="dropdown-item" @click.prevent="$emit('signout')"><translate>Sign out</translate></a>
 				</slot>
 			</dropdown>
 		</div>
@@ -33,10 +33,10 @@
 	</div>
 </template>
 <script>
-	import { Dropdown } from "@vubular/elements";
+	import { Dropdown, Translate } from "@vubular/elements";
 	export default {
 		name: 'Account',
-		components: { Dropdown },
+		components: { Dropdown, Translate },
 		props: ['account'],
 		computed: {
 			fullname() {
