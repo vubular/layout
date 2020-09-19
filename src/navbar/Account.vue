@@ -14,10 +14,14 @@
 					</slot>
 				</template>
 				<slot name="account">
-					<router-link :class="'dropdown-item'" to="/account/profile">{{'Profile'  | translate}}</router-link>
-					<router-link :class="'dropdown-item'" to="/account/security">{{'Security'  | translate}}</router-link>
-					<router-link :class="'dropdown-item'" to="/account/preferences">{{'Preferences'  | translate}}</router-link>
-					<router-link :class="'dropdown-item'" to="/account/notifications">{{'Notifications'  | translate}}</router-link>
+					<router-link v-if="rouerInstalled" :class="'dropdown-item'" to="/account/profile"><translate>Profile</translate></router-link>
+					<a v-else href="#/account/profile"><translate>Profile</translate></a>
+					<router-link :class="'dropdown-item'" to="/account/security"><translate>Security</translate></router-link>
+					<a v-else href="#/account/security"><translate>Security</translate></a>
+					<router-link :class="'dropdown-item'" to="/account/preferences"><translate>Preferences</translate></router-link>
+					<a v-else href="#/account/preferences"><translate>Preferences</translate></a>
+					<router-link :class="'dropdown-item'" to="/account/notifications"><translate>Notifications</translate></router-link>
+					<a v-else href="#/account/notifications"><translate>Notifications</translate></a>
 					<hr class="dropdown-divider">
 					<a href="#" class="dropdown-item" @click.prevent="$emit('signout')">{{'Sign out' | translate}}</a>
 				</slot>
@@ -29,8 +33,10 @@
 	</div>
 </template>
 <script>
+	import { Dropdown } from "@vubular/elements";
 	export default {
 		name: 'Account',
+		components: { Dropdown },
 		props: ['account'],
 		computed: {
 			fullname() {
@@ -48,6 +54,9 @@
 				let isImpersonating = false;
 				if(this.account && this.account.isImpersonating) isImpersonating = true;
 				return isImpersonating;
+			},
+			rouerInstalled() {
+				return this.$route
 			}
 		}
 	}

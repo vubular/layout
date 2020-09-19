@@ -35,8 +35,10 @@
 	</div>
 </template>
 <script>
+	import { Dropdown } from "@vubular/elements";
 	export default {
 		name: "Launcher",
+		components: { Dropdown },
 		computed: {
 			isActive() {
 				return this.hasSupport || this.hasLauncher || this.hasNotifications

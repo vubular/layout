@@ -2,9 +2,12 @@
 	<div class="navbar-brand" style="margin:0 15px">
 		<div class="navbar-item">
 			<slot>
-				<router-link :to="brand.path" class="store-link" exact>
+				<router-link v-if="routeInstalled" :to="brand.path" class="store-link" exact>
 					<img :src="brand.logo" :alt="brand.name" />
 				</router-link>
+				<a v-else :href="brand.path" class="store-link">
+					<img v-if="brand.logo" :src="brand.logo" :alt="brand.name" />
+				</a>
 			</slot>
 		</div>
 	</div>
@@ -12,6 +15,11 @@
 <script>
 	export default {
 		name: 'Brand',
-		props: ["brand"]
+		props: ["brand"],
+		computed: {
+			routeInstalled() {
+				return this.$route
+			}
+		}
 	}
 </script>

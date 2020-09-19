@@ -7,30 +7,30 @@
 						<div @click="toggleActiveItem(item)">
 							<router-link v-if="item.path" :to="item.path">
 								<i v-if="item.icon" :class="item.icon"></i>
-								<plain v-if="item.label && expanded">{{item.label | translate}}</plain>
+								<translate v-if="item.label && expanded">{{item.label</translate>
 							</router-link>
 							<a v-if="!item.path && item.clickFunction" href="#" @click.prevent="" v-else>
 								<i v-if="item.icon" :class="item.icon"></i>
-								<plain v-if="item.label && expanded">{{item.label | translate}}</plain>
+								<translate v-if="item.label && expanded">{{item.label}}</translate>
 							</a>
 							<a v-if="!item.path && !item.clickFunction" href="javascript:void(0);">
 								<i v-if="item.icon" :class="item.icon"></i>
-								<plain v-if="item.label && expanded">{{item.label | translate}}</plain>
+								<translate v-if="item.label && expanded">{{item.label}}</translate>
 							</a>
 						</div>
 						<ul v-if="item.navigation && expanded" class="navigation">
 							<li v-for="(subItem, s) in item.navigation" :key="s" @click="toggleSubActiveItem(subItem)" :class="{'is-active': subActive==subItem}">
 								<router-link v-if="subItem.path" :to="subItem.path">
 									<span v-if="subItem.icon" class="icon"><i :class="subItem.icon"></i></span>
-									{{subItem.label | translate}}
+									<translate>{{subItem.label}}</translate>
 								</router-link>
 								<a href="#" v-if="!subItem.path && subItem.clickFunction" @click.prevent="subItem.clickFunction(subItem)">
 									<span v-if="subItem.icon" class="icon"><i :class="subItem.icon"></i></span>
-									{{subItem.label | translate}}
+									<translate>{{subItem.label}}</translate>
 								</a>
 								<a v-if="!subItem.path && !subItem.clickFunction" href="javascript:void(0);">
 									<span v-if="subItem.icon" class="icon"><i :class="subItem.icon"></i></span>
-									{{subItem.label | translate}}
+									<translate>{{subItem.label}}</translate>
 								</a>
 							</li>
 						</ul>
@@ -41,8 +41,10 @@
 	</div>
 </template>
 <script>
+	import VueScroll from 'vuescroll';
 	export default {
 		name: "Navigation",
+		components: { VueScroll },
 		props: {
 			theme: String,
 			navigation: Array,
