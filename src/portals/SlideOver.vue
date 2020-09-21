@@ -23,7 +23,9 @@
 		mixins: [ clickaway ],
 		methods: {
 			closeSlideOver() {
-				this.$emit("closed-slide-over");
+				if(this.visible) {
+					this.$emit("closed-slide-over");
+				}
 			}
 		}
 	}

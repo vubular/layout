@@ -23,7 +23,9 @@
 		mixins: [ clickaway ],
 		methods: {
 			closeModal() {
-				this.$emit("closed-modal");
+				if(this.visible) {
+					this.$emit("closed-modal");
+				}
 			}
 		}
 	}
