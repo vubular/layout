@@ -58,20 +58,27 @@
 				<template #default><slot name="app"></slot></template>
 			</app>
 		</div>
+		<layout-modal :visible="modalIn" v-on="$listeners"/>
+		<layout-slide-over :visible="slideOverIn" v-on="$listeners"/>
 	</div>
 </template>
 <script>
 	import Sidebar from "./sidebar";
 	import Navbar from "./navbar";
 	import App from "./app";
+
+	import LayoutModal from "./portals/Modal";
+	import LayoutSlideOver from "./portals/SlideOver";
 	export default {
 		name: "VubularLayout",
-		components: { Sidebar, Navbar, App },
+		components: { Sidebar, Navbar, App, LayoutModal, LayoutSlideOver },
 		props: {
 			brand: Object,
 			navigation: Array,
 			preferences: Object,
 			account: Object,
+			modalIn: Boolean,
+			slideOverIn: Boolean
 		},
 		data() {
 			return {
