@@ -1,6 +1,6 @@
 {
   "name": "@vubular/layout",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "App Layout",
   "main": "src/index.js",
   "scripts": {
@@ -8,7 +8,7 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
-    "@vubular/elements": "^0.0.21",
+    "@vubular/elements": "^0.0.22",
     "vuescroll": "^4.16.1",
     "portal-vue": "^2.1.7"
   },
