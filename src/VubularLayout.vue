@@ -24,14 +24,14 @@
 				<template #search>
 					<slot name="search"></slot>
 				</template>
+				<template #launcher-init>
+					<slot name="launcher-init"></slot>
+				</template>
 				<template #support-trigger="{ focus }">
 					<slot name="support-trigger" v-bind="{ focus }"></slot>
 				</template>
 				<template #support>
 					<slot name="support"></slot>
-				</template>
-				<template #launcher-init>
-					<slot name="launcher-init"></slot>
 				</template>
 				<template #launcher-trigger="{ focus }">
 					<slot name="launcher-trigger" v-bind="{ focus }"></slot>

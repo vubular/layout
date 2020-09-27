@@ -7,7 +7,7 @@
 			<template #search><slot name="search"></slot></template>
 		</search>
 		<launcher :launcher="launcher" v-on="$listeners">
-			<template #launcher-init><slot name="init"></slot></template>
+			<slot name="launcher-init"></slot>
 			<template #support-trigger="{ focus }"><slot name="support-trigger" v-bind="{ focus }"></slot></template>
 			<template #support><slot name="support"></slot></template>
 			<template #launcher-trigger="{ focus }"><slot name="launcher-trigger" v-bind="{ focus }"></slot></template>
