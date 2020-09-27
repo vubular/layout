@@ -1,5 +1,6 @@
 <template>
 	<div class="navbar-end">
+		<slot name="init"></slot>
 		<div class="navbar-item">
 			<dropdown style="width:100%;height:100%">
 				<template v-slot:trigger="{ focus }">
