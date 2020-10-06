@@ -19,7 +19,7 @@
 		name: 'Breadcrumbs',
 		data() { return { paths: [] } },
 		beforeMount() { this.updateBreadcrumbs() },
-		computed: { hasBreadcrumbsRight() { return !!this.$slots.breadcrumbsRight } },
+		computed: { hasBreadcrumbsRight() { return !!this.$slots["breadcrumbs-right"] } },
 		methods: {
 			updateBreadcrumbs: function() {
 				this.paths = [];
