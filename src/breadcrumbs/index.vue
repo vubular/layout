@@ -9,7 +9,7 @@
 				</ul>
 			</nav>
 		</div>
-		<div v-if="hasBreadcrumbsRight" class="column">
+		<div v-if="hasBreadcrumbsRight" class="column" style="padding:0">
 			<slot name="breadcrumbs-right"></slot>
 		</div>
 	</div>
