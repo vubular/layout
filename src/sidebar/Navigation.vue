@@ -3,38 +3,50 @@
 		<vue-scroll :ops="scrollStyle">
 			<ul>
 				<template v-for="(item, i) in navigation">
-					<li :class="{'is-active': active==item}">
-						<div @click="toggleActiveItem(item)">
-							<router-link v-if="item.path" :to="item.path">
-								<i v-if="item.icon" :class="item.icon"></i>
-								<translate v-if="item.label && expanded">{{item.label</translate>
-							</router-link>
-							<a v-if="!item.path && item.clickFunction" href="#" @click.prevent="">
-								<i v-if="item.icon" :class="item.icon"></i>
-								<translate v-if="item.label && expanded">{{item.label}}</translate>
-							</a>
-							<a v-if="!item.path && !item.clickFunction" href="javascript:void(0);">
-								<i v-if="item.icon" :class="item.icon"></i>
-								<translate v-if="item.label && expanded">{{item.label}}</translate>
-							</a>
-						</div>
-						<ul v-if="item.navigation && expanded" class="navigation">
-							<li v-for="(subItem, s) in item.navigation" :key="s" @click="toggleSubActiveItem(subItem)" :class="{'is-active': subActive==subItem}">
-								<router-link v-if="subItem.path" :to="subItem.path">
-									<span v-if="subItem.icon" class="icon"><i :class="subItem.icon"></i></span>
-									<translate>{{subItem.label}}</translate>
+					<template v-if="item.navigation.length==1 && item.navigation[0] && item.navigation[0].root && item.navigation[0].path">
+						<li :class="{'is-active': active==item}">
+							<div @click="toggleActiveItem(item)">
+								<router-link :to="item.navigation[0].path" style="width:100%;display:block">
+									<i v-if="item.icon" :class="item.icon"></i>
+									<translate v-if="item.label && expanded">{{item.label}}</translate>
 								</router-link>
-								<a href="#" v-if="!subItem.path && subItem.clickFunction" @click.prevent="subItem.clickFunction(subItem)">
-									<span v-if="subItem.icon" class="icon"><i :class="subItem.icon"></i></span>
-									<translate>{{subItem.label}}</translate>
+							</div>
+						</li>
+					</template>
+					<template v-else>
+						<li :class="{'is-active': active==item}">
+							<div @click="toggleActiveItem(item)">
+								<router-link v-if="item.path" :to="item.path">
+									<i v-if="item.icon" :class="item.icon"></i>
+									<translate v-if="item.label && expanded">{{item.label}}</translate>
+								</router-link>
+								<a v-if="!item.path && item.clickFunction" href="#" @click.prevent="">
+									<i v-if="item.icon" :class="item.icon"></i>
+									<translate v-if="item.label && expanded">{{item.label}}</translate>
 								</a>
-								<a v-if="!subItem.path && !subItem.clickFunction" href="javascript:void(0);">
-									<span v-if="subItem.icon" class="icon"><i :class="subItem.icon"></i></span>
-									<translate>{{subItem.label}}</translate>
+								<a v-if="!item.path && !item.clickFunction" href="javascript:void(0);">
+									<i v-if="item.icon" :class="item.icon"></i>
+									<translate v-if="item.label && expanded">{{item.label}}</translate>
 								</a>
-							</li>
-						</ul>
-					</li>
+							</div>
+							<ul v-if="item.navigation && expanded" class="navigation">
+								<li v-for="(subItem, s) in item.navigation" :key="s" @click="toggleSubActiveItem(subItem)" :class="{'is-active': subActive==subItem}">
+									<router-link v-if="subItem.path" :to="subItem.path">
+										<span v-if="subItem.icon" class="icon"><i :class="subItem.icon"></i></span>
+										<translate>{{subItem.label}}</translate>
+									</router-link>
+									<a href="#" v-if="!subItem.path && subItem.clickFunction" @click.prevent="subItem.clickFunction(subItem)">
+										<span v-if="subItem.icon" class="icon"><i :class="subItem.icon"></i></span>
+										<translate>{{subItem.label}}</translate>
+									</a>
+									<a v-if="!subItem.path && !subItem.clickFunction" href="javascript:void(0);">
+										<span v-if="subItem.icon" class="icon"><i :class="subItem.icon"></i></span>
+										<translate>{{subItem.label}}</translate>
+									</a>
+								</li>
+							</ul>
+						</li>
+					</template>
 				</template>
 			</ul>
 		</vue-scroll>
