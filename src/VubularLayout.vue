@@ -97,7 +97,12 @@
 				return this.navigation && Array.isArray(this.navigation) && this.navigation.length>0
 			}
 		},
-		mounted() { this.$emit("mounted") }
+		mounted() { 
+			this.$emit("mounted");
+			if(this.currentUser.first_login) {
+				this.$router.push("/account/security");	
+			}
+		}
 	}
 </script>
 <style scoped>
