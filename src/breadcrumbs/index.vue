@@ -1,6 +1,10 @@
 <template>
 	<div class="columns is-multiline is-marginless">
-		<div v-if="false" class="column is-12 notification is-warning py-5 blink">
+		<div v-if="cannotSell" class="column is-12 notification is-warning py-5" :class="{'blink': isBlinking}">
+			<span class="fa-stack fa-2x">
+			  <i class="fal fa-cash-register fa-stack-1x"></i>
+			  <i class="fas fa-ban fa-stack-2x stopStyle"></i>
+			</span>
 			Payments are not allowed until your last 
 			<strong>Clearance Request</strong> will be Approved or request for Date adjust.
 		</div>	
@@ -19,38 +23,16 @@
 	</div>
 </template>
 <script>
-	import { mapActions, mapGetters } from 'vuex';
+	import { mapGetters } from 'vuex';
 	export default {
 		name: 'Breadcrumbs',
 		data() { return { paths: [] } },
 		beforeMount() { this.updateBreadcrumbs() },
-		mounted() {
-			this.checkIfCanSell();
-		},
 		computed: { 
-			...mapGetters("canvasOffcanvas", ["cannotSell"]),
+			...mapGetters("canvasOffcanvas", ["cannotSell", "isBlinking"]),
 			hasBreadcrumbsRight() { return !!this.$slots["breadcrumbs-right"] }
 		},
 		methods: {
-			...mapActions("canvasOffcanvas", ["stopSelling", "startSelling"]),
-			checkIfCanSell() {
-				this.database()
-					.ref("clearancerequests", "accounting")
-					.where([{field: "user.value", value: this.currentUser.id}])
-					.with("specification")
-					.paginate(1, 1, true)
-					// .with("specification,user")
-					.once()
-					.then((response) => {
-						if(response.data) {
-							console.log(response.data.data[0]);
-							console.log(response.data.data[0].specification.end_date>=this.dayjs().format("YYYY-MM-DD"));
-							if(response.data.data[0].specification.end_date>=this.dayjs().format("YYYY-MM-DD")) {	
-								this.stopSelling();
-							}
-						}
-					})
-			},
 			updateBreadcrumbs: function() {
 				this.paths = [];
 				let paths = this.$route.path.substring(1).split("?").shift().split("/");
@@ -82,4 +64,5 @@
 	  -moz-animation: blink 0.7s linear infinite;
 	  animation: blink 0.7s linear infinite;
 	} 
+	.stopStyle { opacity: 0.4; color: red; }
 </style>
