@@ -1,7 +1,7 @@
 <template>
 	<div class="navbar-start" style="width:50%">
 		<div class="navbar-item" style="width:100%">
-			<div class="field" style="margin:7px 10px;width:100%">
+			<div class="field search">
 				<div class="control">
 					<slot name="search">
 						<input class="input is-medium" type="text" placeholder="Search...">
@@ -24,4 +24,6 @@
 	>>> a.dropdown-item.is-hovered h3 { color: whitesmoke; }
 	.iconBg:first-child { background: #737373; }
 	.masterFocus { background: #292929; color: whitesmoke; }
+  .search { margin:7px 10px; width:100%}
+  @media screen and (max-width: 768px) { .search { margin:-2px 10px; width:100% }}
 </style>
