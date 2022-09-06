@@ -21,7 +21,7 @@
 				<slot name="launcher"></slot>
 			</dropdown>
 		</div>
-		<div class="navbar-item">
+		<div class="navbar-item is-hidden-mobile">
 			<dropdown style="width:100%;height:100%">
 				<template v-slot:trigger="{ focus }">
 					<slot name="notifications-trigger" v-bind="{ focus }">

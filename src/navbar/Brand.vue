@@ -1,5 +1,5 @@
 <template>
-	<div class="navbar-brand" style="margin:0 15px">
+	<div class="navbar-brand is-hidden-mobile" style="margin:0 15px">
 		<div class="navbar-item">
 			<slot>
 				<router-link v-if="routeInstalled" :to="brand.path" class="store-link" exact>
