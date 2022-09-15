@@ -3,10 +3,10 @@
 		<div class="navbar-item">
 			<slot>
 				<router-link v-if="routeInstalled" :to="brand.path" class="store-link" exact>
-					<img :src="brand.logo" :alt="brand.name" />
+					<img :src="brand.logo" :alt="brand.name" class="w-100" />
 				</router-link>
 				<a v-else :href="brand.path" class="store-link">
-					<img v-if="brand.logo" :src="brand.logo" :alt="brand.name" />
+					<img v-if="brand.logo" :src="brand.logo" :alt="brand.name" class="w-100" />
 				</a>
 			</slot>
 		</div>
@@ -23,3 +23,6 @@
 		}
 	}
 </script>
+<style scoped>
+	.w-100 { width: 100%; }
+</style>
