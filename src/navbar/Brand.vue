@@ -3,10 +3,10 @@
 		<div class="navbar-item">
 			<slot>
 				<router-link v-if="routeInstalled" :to="brand.path" class="store-link" exact>
-					<img :src="brand.logo" :alt="brand.name" class="w-100" />
+					<img v-if="!loading" :src="brand.logo" :alt="brand.name" class="w-100" />
 				</router-link>
 				<a v-else :href="brand.path" class="store-link">
-					<img v-if="brand.logo" :src="brand.logo" :alt="brand.name" class="w-100" />
+					<img v-if="brand.logo && !loading" :src="brand.logo" :alt="brand.name" class="w-100" />
 				</a>
 			</slot>
 		</div>
@@ -16,6 +16,16 @@
 	export default {
 		name: 'Brand',
 		props: ["brand"],
+		data() {
+			return {
+				loading: true
+			}
+		},
+		mounted() {
+			setTimeout(() => {
+				this.loading = false;
+			}, 1000)
+		},
 		computed: {
 			routeInstalled() {
 				return this.$route
