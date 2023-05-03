@@ -3,10 +3,10 @@
 		<div class="navbar-item">
 			<slot>
 				<router-link v-if="routeInstalled" :to="brand.path" class="store-link" exact>
-					<img v-if="!loading" :src="brand.logo" :alt="brand.name" class="w-100" />
+					<img v-if="!loading" :src="brand.logo" :alt="brand.name" class="w-100" :style="{maxHeight: brand.size}" />
 				</router-link>
 				<a v-else :href="brand.path" class="store-link">
-					<img v-if="brand.logo && !loading" :src="brand.logo" :alt="brand.name" class="w-100" />
+					<img v-if="brand.logo && !loading" :src="brand.logo" :alt="brand.name" class="w-100" :style="{maxHeight: brand.size}" />
 				</a>
 			</slot>
 		</div>
