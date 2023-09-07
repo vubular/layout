@@ -76,7 +76,7 @@ export default {
 <style scoped>
 	.container { display: flex; flex-direction: column; min-height: calc(100vh - 60px); overflow-y: auto; overflow-x: auto; padding: 30px; }
 	@media screen and (max-width: 768px) { .content-area { overflow-x: hidden; } }
-	.company { margin-top: 15px; }
-	.company svg { width: 15px; height: 15px; line-height: 15px; }
+	.company { margin-top: 20px; font-size: 10px; }
+	.company svg { width: 10px; height: 10px; line-height: 10px; }
 	.company p { height: 15px; line-height: 15px; }
 </style>
