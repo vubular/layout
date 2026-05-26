@@ -107,6 +107,15 @@
 </script>
 <style scoped>
 	.vubular-layout-container #app-section { transition: padding .30s; background: #f7f7f7; }
+	.vubular-layout-container #app-section >>> nav.navbar {
+		position: relative;
+		z-index: 1000;
+		overflow: visible;
+	}
+	.vubular-layout-container #app-section >>> .layout-app {
+		position: relative;
+		z-index: 1;
+	}
 	.vubular-layout-container #app-section.sidebar-set { padding-left: 65px; }
 	.vubular-layout-container #app-section.sidebar-pinned { padding-left: 240px; }
 
@@ -122,6 +131,16 @@
 			width: 100% !important;
 			max-width: 100%;
 			box-sizing: border-box;
+		}
+
+		.vubular-layout-container #app-section >>> nav.navbar,
+		.vubular-layout-container #app-section >>> nav.navbar .navbar-end,
+		.vubular-layout-container #app-section >>> nav.navbar .navbar-item {
+			overflow: visible;
+		}
+
+		.vubular-layout-container #app-section >>> nav.navbar .dropdown-menu {
+			z-index: 10050;
 		}
 	}
 </style>

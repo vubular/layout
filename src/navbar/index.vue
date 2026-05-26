@@ -38,7 +38,19 @@
 	}
 </script>
 <style scoped>
-	nav.navbar { height: 60px; box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33); }
+	nav.navbar {
+		height: 60px;
+		box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
+		position: relative;
+		z-index: 1000;
+		overflow: visible;
+	}
+
+	nav.navbar >>> .navbar-end,
+	nav.navbar >>> .navbar-start,
+	nav.navbar >>> .navbar-item {
+		overflow: visible;
+	}
 	.background-primary-sidebar { background-color: #2b323a; }
 	.background-primary-sidebar a { color: #fff; padding: 20px; font-size: 1em; }
 	.background-primary-sidebar a:not(i) { color: #a7a6a6;  }

@@ -67,5 +67,14 @@
 	.dropdown.is-active button { background: #dbdbdb; border-color: #dbdbdb; }
 	.mr0{margin-right:0;border-right:0;}
 	.navbar-item.impersonating:hover { background: #dbdbdb; }
-	>>> .dropdown-menu { width: 100%; }
+	.navbar-item >>> .dropdown { position: relative; }
+	>>> .dropdown-menu {
+		width: 100%;
+		min-width: 12rem;
+		z-index: 10050;
+	}
+	>>> .dropdown-menu .dropdown-content {
+		max-height: none;
+		overflow: visible;
+	}
 </style>

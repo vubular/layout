@@ -1,5 +1,5 @@
 <template>
-	<div class="container is-fluid is-marginless" :style="containerStyle">
+	<div class="container is-fluid is-marginless layout-app" :style="containerStyle">
 		<breadcrumbs>
 			<template #breadcrumbs-right>
 				<slot name="breadcrumbs-right"></slot>

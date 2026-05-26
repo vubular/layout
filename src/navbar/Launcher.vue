@@ -63,7 +63,11 @@
 	.navbar-item button:hover i,
 	.navbar-item button:active i,
 	.navbar-item button:focus i { color: #595858; }
-	>>> .dropdown-menu { min-width: 25rem; right: -225% !important; }
+	>>> .dropdown-menu {
+		min-width: 25rem;
+		right: -225% !important;
+		z-index: 10050;
+	}
 	>>> .dropdown-menu:before { content: ""; position: absolute; top: -17px; left: 50.5%; margin-left: -10px; border-width: 10px; border-style: solid; border-color: transparent transparent #ddd transparent; }
 	>>> .dropdown-menu:after { content: ""; position: absolute; top: -16px; left: 50.5%; margin-left: -10px; border-width: 10px; border-style: solid; border-color: transparent transparent #fff transparent; }
 	>>> .dropdown-menu .dropdown-content { max-height: 30rem !important; overflow-y: auto; overflow-x: hidden; padding: 0; }
