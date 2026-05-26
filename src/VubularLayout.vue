@@ -109,4 +109,19 @@
 	.vubular-layout-container #app-section { transition: padding .30s; background: #f7f7f7; }
 	.vubular-layout-container #app-section.sidebar-set { padding-left: 65px; }
 	.vubular-layout-container #app-section.sidebar-pinned { padding-left: 240px; }
+
+	@media screen and (max-width: 768px) {
+		.vubular-layout-container #app-section.sidebar-set,
+		.vubular-layout-container #app-section.sidebar-pinned {
+			padding-left: 0;
+		}
+
+		.vubular-layout-container #app-section.sidebar-set:not(.sidebar-pinned) >>> .navbar-start {
+			margin-left: 0;
+			padding-left: 65px;
+			width: 100% !important;
+			max-width: 100%;
+			box-sizing: border-box;
+		}
+	}
 </style>

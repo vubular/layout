@@ -72,11 +72,16 @@
 				active: null,
 				subActive: null,
 				settingsActive: null,
-				settingsOver: false,
-				scrollStyle: {
+				settingsOver: false
+			}
+		},
+		computed: {
+			scrollStyle() {
+				const isMobile = typeof window !== "undefined" && window.matchMedia("(max-width: 768px)").matches;
+				return {
 					vuescroll: {
-						scrollingY: false,
-						detectResize: false,
+						scrollingY: isMobile && this.expanded,
+						detectResize: isMobile && this.expanded,
 					},
 					bar: {
 						background: 'rgb(85, 100, 125)',

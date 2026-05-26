@@ -1,6 +1,6 @@
 <template>
 	<div class="navbar-start" style="width:50%">
-		<div class="navbar-item" style="width:100%">
+		<div class="navbar-item navbar-search-item">
 			<div class="field search">
 				<div class="control">
 					<slot name="search">
@@ -24,6 +24,10 @@
 	>>> a.dropdown-item.is-hovered h3 { color: whitesmoke; }
 	.iconBg:first-child { background: #737373; }
 	.masterFocus { background: #292929; color: whitesmoke; }
-  .search { margin:7px 10px; width:100%}
-  @media screen and (max-width: 768px) { .search { margin:-2px 10px; width:100% }}
+	.navbar-search-item { width: 100%; }
+	.search { margin:7px 10px; width:100%}
+	@media screen and (max-width: 768px) {
+		.navbar-search-item { width: 80%; }
+		.search { margin:-2px 10px; width:100% }
+	}
 </style>
